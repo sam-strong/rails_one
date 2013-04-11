@@ -1,0 +1,19 @@
+<h1>This is the list of your comments!</h1>
+<%= link_to 'Back', @user %>
+<table>
+  <tr>
+    <td> <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></td>
+
+  </tr>
+  <% @comments = @user.comments %>
+  <% @comments.each do |comment| %>
+  <tr>
+    <td><strong> <%= comment.title %> </strong></td>
+    <td> <%= comment.body %></td>
+    <td><%= link_to 'Edit', edit_user_comment_path(@user,comment) %></td>
+    <td><%= link_to 'Obliterate', user_comment_path(@user, comment), method: :delete, data: { confirm: 'Does this bring us back to the goal line technology debate?' }%></td>
+  </tr>
+  <% end %>
+
+
+</table>

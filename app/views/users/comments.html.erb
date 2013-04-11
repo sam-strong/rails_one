@@ -1,0 +1,26 @@
+<h1>This is the list of all comments!</h1>
+<%= link_to 'Back', users_path %>
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td> <%= user.first_name %> </td>
+    <td> <%= user.last_name %> </td>
+    <td> <%= user.age %> </td>
+  </tr>
+
+  <% @comments = user.comments %>
+  <% @comments.each do |comment| %>
+  <tr>
+    <td><strong> <%= comment.title %> </strong></td>
+    <td> <%= comment.body %></td>
+  </tr>
+  <% end %>
+
+  <tr>
+    <td><%= link_to 'Show User', user %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<%= link_to 'New User', new_user_path %>

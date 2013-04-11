@@ -1,0 +1,18 @@
+<p></p>
+<%= link_to 'Your Comments', user_comments_path(@user)%>
+<h2>Add a comment:</h2>
+<%= form_for([@user, @user.comments.build]) do |comment| %>
+  <div class="field">
+    <%= comment.label :title %><br />
+    <%= comment.text_field :title %>
+  </div>
+  <div class="field">
+    <%= comment.label :body %><br />
+    <%= comment.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= comment.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'All Comments', users_comments_path%>

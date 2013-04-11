@@ -1,0 +1,15 @@
+<h3>Edit the comment</h3>
+
+<%= form_for([@user, @comment]) do |comment| %>
+  <div class="field">
+    <%= comment.label :title %><br />
+    <%= comment.text_field :title %>
+  </div>
+  <div class="field">
+    <%= comment.label :body %><br />
+    <%= comment.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= comment.submit %>
+  </div>
+<% end %>

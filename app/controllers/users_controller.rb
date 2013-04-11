@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to @user
+  end
+
   def new
     @user = User.new
   end
@@ -27,4 +33,9 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url
   end
+
+  def comments
+    @users = User.all
+  end
+
 end
